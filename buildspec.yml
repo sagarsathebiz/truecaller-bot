@@ -1,0 +1,20 @@
+version: 0.1
+phases:
+  install:
+    runtime-versions:
+      java: Corretto 17
+  pre_build:
+    commands:
+    - echo In the pre_build phase...
+  build:
+    commands:
+    - echo Build started on `date`
+  post_build:
+    commands:
+    - echo Build completed on `date`
+    - mvn package
+    - mv target/truecaller-0.0.1.jar truecaller-0.0.1.jar
+artifacts:
+  files:
+  - truecaller-0.0.1.jar
+  - .ebextensions/**/*
